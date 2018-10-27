@@ -1,7 +1,10 @@
+// @flow
 import React from 'react';
 import './index.css';
 
-export default (props) => (
+type Props = {};
+
+export default (props: Props) => (
   <div className="container">
     <input className="input" type="text"></input>
   </div>

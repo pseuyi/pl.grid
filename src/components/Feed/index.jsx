@@ -1,9 +1,15 @@
+// @flow
 import React from 'react';
 import Input from '../Input';
 import Post from '../Post';
 import './index.css';
 
-class Feed extends React.PureComponent {
+type Props = {};
+type State = {
+  posts: string[],
+};
+
+class Feed extends React.PureComponent<Props, State> {
   state = {
     posts: ['foo', 'bar', 'baz']
   }
