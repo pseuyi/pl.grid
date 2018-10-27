@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: api_posts
+# Table name: posts
 #
 #  id         :integer          not null, primary key
 #  url        :string           not null
@@ -11,7 +11,7 @@
 
 require 'test_helper'
 
-class Api::PostTest < ActiveSupport::TestCase
+class PostTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

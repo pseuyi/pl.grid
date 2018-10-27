@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: api_posts
+# Table name: posts
 #
 #  id         :integer          not null, primary key
 #  url        :string           not null
@@ -9,6 +9,6 @@
 #  updated_at :datetime         not null
 #
 
-class Api::Post < ApplicationRecord
+class Post < ApplicationRecord
   validates :url, :source, presence: true
 end
