@@ -1,4 +1,5 @@
 import React from 'react';
+import Input from '../Input';
 import Post from '../Post';
 import './index.css';
 
@@ -11,8 +12,9 @@ class Feed extends React.PureComponent {
     return(
       <div className="feed">
         feed component
+        <Input/>
         {
-          posts.map(post => (<Post value={post}/>))
+          posts.map((post, idx) => (<Post key={idx} value={post}/>))
         }
       </div>
     )
