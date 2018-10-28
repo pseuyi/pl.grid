@@ -14,7 +14,7 @@ function Feed() {
     () => {
       if (response.error) {
         setError(response.error);
-      } else {
+      } else if (response.post) {
         setPosts([response.post, ...posts]);
       }
     },
