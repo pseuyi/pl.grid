@@ -15,12 +15,11 @@ const usePostForm = (initialValues = {}) => {
 
         fetch(`${API}/posts`, {
           method: "POST",
-          body: JSON.stringify(data),
-          mode: "no-cors",
+          mode: "cors",
           headers: {
-            "Access-Control-Allow-Origin": "origin",
-            "Content-Type": "application/json; charset=utf-8",
+            'Content-Type': 'application/json',
           },
+          body: JSON.stringify(data),
         })
           .then(res => res.json())
           .then(res => {
