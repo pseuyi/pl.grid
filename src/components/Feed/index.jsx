@@ -6,7 +6,7 @@ import Post from 'components/Post';
 import './index.css';
 
 function Feed() {
-  const [posts, setPosts] = useState(['foo']);
+  const [posts, setPosts] = useState([]);
   const [error, setError] = useState('');
   const { response, setFormValue, submit } = usePostForm({});
 

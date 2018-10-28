@@ -2,9 +2,8 @@ import { useState, useEffect } from "react";
 
 const API = process.env.REACT_APP_API;
 
-const response = {};
-
 const usePostForm = (initialValues = {}) => {
+  const [response, setResponse] = useState({});
   const [values, setFormValue] = useState(initialValues);
   const [isSubmitting, submit] = useState(false);
 
@@ -23,10 +22,10 @@ const usePostForm = (initialValues = {}) => {
         })
           .then(res => res.json())
           .then(res => {
-            response.post = res.post;
+            setResponse({ post: res.post });
             setFormValue({});
           })
-          .catch(err => { response.error = err; })
+          .catch(err => { setResponse({ error: err }); })
           .finally(() => submit(false));
       }
     },
