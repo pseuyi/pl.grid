@@ -23,6 +23,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # rails
+/tmp
 .byebug_history
 development.sqlite3
 test.sqlite3
