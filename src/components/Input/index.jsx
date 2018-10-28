@@ -1,11 +1,29 @@
 // @flow
-import React from 'react';
-import './index.css';
+import React from "react";
+import "./index.css";
 
-type Props = {};
+type Props = {
+  onSubmit: Function,
+  setUrl: Function,
+};
 
-export default (props: Props) => (
-  <div className="container">
-    <input className="input" type="text"></input>
-  </div>
-)
+export default (props: Props) => {
+  return (
+    <form
+      className="container"
+      onSubmit={e => {
+        e.preventDefault();
+        props.onSubmit(true)
+      }}
+    >
+      <input
+        className="input"
+        type="text"
+        onChange={e => {
+          props.setUrl({ url: e.target.value, source: 'youtube' })
+        }}
+      />
+      <button type="submit">test</button>
+    </form>
+  );
+};
