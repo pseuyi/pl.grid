@@ -16,7 +16,9 @@ const usePostForm = (initialValues = {}) => {
         fetch(`${API}/posts`, {
           method: "POST",
           body: JSON.stringify(data),
+          mode: "no-cors",
           headers: {
+            "Access-Control-Allow-Origin": "origin",
             "Content-Type": "application/json; charset=utf-8",
           },
         })
