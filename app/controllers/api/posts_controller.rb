@@ -1,12 +1,12 @@
 class Api::PostsController < ApplicationController
   def index
-    render json: { posts: Post.all } 
+    render json: { payload: Post.all.order('created_at DESC') }
   end
 
   def create
     @post = Post.new(post_params)
     if @post.save
-      render json: { post: @post }
+      render json: { payload: @post }
     else
       render json: { error: @post.errors.full_messages },
              status: :unprocessable_entity
