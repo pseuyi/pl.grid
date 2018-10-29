@@ -1,30 +1,27 @@
 // @flow
-import React, { useEffect, useState } from 'react';
-import { usePostForm } from 'hooks';
+import React, { useState, useReducer, useEffect } from 'react';
+import { postState, postReducer } from 'ducks';
+import { usePostForm, fetchPosts } from 'hooks';
 import Input from 'components/Input';
 import Post from 'components/Post';
 import './index.css';
 
 function Feed() {
-  const [posts, setPosts] = useState([]);
-  const [error, setError] = useState('');
-  const { response, setFormValue, submit } = usePostForm({});
+  const [state, dispatch] = useReducer(postReducer, postState);
+  // const [formState, formActions] = usePostForm({}, dispatch);
+  const { posts, error } = state;
 
   useEffect(
     () => {
-      if (response.error) {
-        setError(response.error);
-      } else if (response.post) {
-        setPosts([response.post, ...posts]);
-      }
+      if (!posts.length) fetchPosts(dispatch);
     },
-    [response],
-  )
+    [posts]
+  );
 
   return (
     <div className="feed">
       feed component
-      <Input onSubmit={submit} setUrl={setFormValue}/>
+      <Input dispatch={dispatch} />
       { error }
       {
         posts.map((post, idx) => (<Post key={idx} value={post}/>))
